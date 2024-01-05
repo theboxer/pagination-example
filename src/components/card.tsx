@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const Card: FC<Props> = ({id}) => {
-    return <div className="bg-slate-200 w-full h-64 flex flex-col items-center justify-center text-2xl space-y-4">
+    return <div key={id} className="bg-slate-200 w-full h-64 flex flex-col items-center justify-center text-2xl space-y-4">
         <div>Card #{id}</div>
         <Delete id={id} />
     </div>

@@ -2,18 +2,21 @@
 
 import { ReactElement, useState } from 'react';
 import {fetchItems} from "@/actions/items";
+import {atom, useAtom} from "jotai";
+
+export const dataAtom = atom<{
+  page: number;
+  data: (ReactElement | undefined)[];
+}>({
+  page: 2,
+  data: [],
+})
 
 export const LoadMore = ({
 }) => {
   const [hasMore, setHasMore] = useState(true);
 
-  const [data, setData] = useState<{
-    page: number;
-    data: (ReactElement | undefined)[];
-  }>({
-    page: 2,
-    data: [],
-  });
+  const [data, setData] = useAtom(dataAtom);
 
   const loadMore = () => {
     fetchItems(data.page).then((res) => {

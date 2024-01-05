@@ -20,3 +20,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Expected flow
 - Card will disappear even from 2+ page
+
+## Solution with global state
+- I chose jotai for global state implementation, but doesn't really matter
+- The loadMore component uses global state vs local `useState`
+- The delete button adjusts the global state and removes the rendered item (identified by it's key)
+- First page is not in the global store and the item will be removed as usual (through the partial page refresh)
